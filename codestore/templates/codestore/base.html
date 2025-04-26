@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Code Store</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'codestore/styles.css' %}">
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <p>Hello, {{ user.username }} | <a href="{% url 'logout' %}">Logout</a></p>
+    {% endif %}
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>

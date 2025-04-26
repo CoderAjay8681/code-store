@@ -1,0 +1,17 @@
+{% extends 'codestore/base.html' %}
+
+{% block content %}
+<h2>Your Code Snippets</h2>
+<a href="{% url 'code_create' %}">+ Add New Code</a>
+<ul>
+    {% for snippet in snippets %}
+        <li>
+            <strong>{{ snippet.title }}</strong> ({{ snippet.language }})
+            [<a href="{% url 'code_update' snippet.pk %}">Edit</a>] 
+            [<a href="{% url 'code_delete' snippet.pk %}">Delete</a>]
+        </li>
+    {% empty %}
+        <li>No codes yet!</li>
+    {% endfor %}
+</ul>
+{% endblock %}
